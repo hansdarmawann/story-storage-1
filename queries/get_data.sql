@@ -75,7 +75,7 @@ SELECT
         i.modificationDate,
         1,
         10
-    )                   AS modificationDate,
+    )                   AS fileDate,
 
     ii.format
 FROM AlbumRoots ar
