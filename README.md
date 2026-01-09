@@ -1,195 +1,172 @@
-# Exploratory Data Analysis of Personal Media Storage Metadata
+# Storage Story: Exploratory Analysis of Personal Media Storage Metadata
+**by Hans Darmawan**
+Language: Python
+Analysis Type: Exploratory Data Analysis (EDA)
 
-**Google Data Analytics Capstone Case Study**
 
-**Author:** Hans Darmawan
-**Tools:** Python (pandas, numpy, matplotlib, seaborn)
-**Framework:** Ask • Prepare • Process • Analyze • Share • Act
-**Analysis Type:** Exploratory Data Analysis (EDA)
+## Overview
 
----
+This project presents an **Exploratory Data Analysis (EDA)** of anonymized personal media storage metadata. The objective is to understand **how personal media storage is consumed over time**, which media categories and formats contribute most to storage growth, and how these patterns evolve temporally.
 
-## Project Overview
-
-This project analyzes **personal media storage metadata** derived from multiple hard disks used to archive photography and videography files. Over time, increasing shooting frequency and file sizes have resulted in rapid storage growth, making storage planning and file management more complex.
-
-Using the **Google Data Analytics Capstone framework**, this case study applies exploratory data analysis (EDA) to understand **how storage is consumed**, **which file types contribute most to usage**, and **how shooting behavior changes over time**.
-
-The analysis is **descriptive and insight-driven**, with no predictive modeling.
-
----
-
-## Business Task
-
-The primary business task is:
-
-> **How is media storage being consumed over time, and what patterns in file type, size, and shooting frequency explain the growth in storage usage?**
-
-This analysis aims to support:
-
-* Better storage planning
-* Improved archive organization
-* Data-informed decisions about future storage needs
-
----
-
-## Stakeholders
-
-* The content creator (photographer / videographer)
-* Anyone managing large personal media archives
-* Data analysts reviewing EDA case studies
-
----
-
-## Dataset Description
-
-The dataset consists of **anonymized file-level metadata** extracted from personal media archives.
-To prevent data leakage and privacy issues, all identifiers and filenames have been masked.
-
-### Columns Included
-
-* **storage_id**
-  Identifier representing a physical storage device (hard disk)
-
-* **album_id**
-  Identifier representing a folder or album within a storage device
-
-* **file_name**
-  Masked filename (sequential, non-identifiable)
-
-* **file_extension**
-  File type (e.g., JPG, MP4, MOV, RAW)
-
-* **file_size_bytes**
-  File size in bytes
-
-* **file_date**
-  File date truncated to year–month–day (hours, minutes, seconds removed)
-
-The dataset was intentionally limited to date granularity at the day level to reduce sensitivity while preserving analytical value .
-
----
-
-## Analysis Framework
-
-This project follows the **six phases of the Google Data Analytics process**.
-
----
-
-## 1. Ask
-
-### Business Questions
-
-* Which file types contribute the most to total storage usage?
-* Does shooting frequency correlate with storage growth?
-* How does storage usage change over time (yearly, monthly)?
-* Are weekends or weekdays associated with higher shooting activity?
-* Do fewer large RAW/video files outweigh many small JPEG files?
-
-### Success Criteria
-
-* Clear understanding of storage composition
-* Evidence-based insights into shooting and storage behavior
-* Actionable recommendations for archive management
-
----
-
-## 2. Prepare
-
-* Loaded metadata from CSV format
-* Inspected schema, row counts, and data types
-* Verified anonymization and scope limitations
-* Assessed missing values and data consistency
-
-A column-level data dictionary and completeness check are included in the notebook.
-
----
-
-## 3. Process
-
-* Preserved original data wherever possible
-* Standardized date fields to support temporal analysis
-* Ensured numeric fields (file size) were correctly typed
-* Created derived fields where necessary (e.g., year, month, weekday)
-
-All processing steps are documented for transparency.
-
----
-
-## 4. Analyze
-
-The EDA focuses on:
-
-* **Univariate analysis**
-
-  * Distribution of file sizes
-  * Frequency of file extensions
-
-* **Bivariate analysis**
-
-  * File type vs total storage contribution
-  * Time vs storage growth
-
-* **Temporal analysis**
-
-  * Yearly and monthly shooting trends
-  * Weekday vs weekend shooting behavior
-
-This phase directly addresses whether **many small files** or **few large files** dominate storage usage, a key concern raised in the project motivation .
-
----
-
-## 5. Share
-
-### Key Insights
-
-* A small number of high-resolution photo or video files can outweigh hundreds of compressed images
-* Storage growth accelerates during periods of increased shooting intensity
-* Certain days or periods show consistently higher activity
-* File type composition strongly influences storage efficiency
-
-Insights are presented using clear visuals and non-technical explanations.
-
----
-
-## 6. Act
-
-### Recommendations
-
-* Plan future storage purchases based on file type composition, not file count
-* Separate large RAW/video files into dedicated archives
-* Monitor shooting frequency trends to anticipate storage needs
-* Standardize folder structures to simplify long-term management
-
-### Next Steps
-
-* Deeper time-series analysis of storage growth
-* File lifecycle analysis (active vs cold storage)
-* Optional predictive modeling for future storage forecasting
+The analysis is structured using the **Google Data Analytics Capstone framework**:
+**Ask → Prepare → Process → Analyze → Share → Act**.
+The project emphasizes analytical discipline, transparency, and reproducibility, avoiding unnecessary feature engineering beyond what is required for reliable exploratory insights.
 
 ---
 
 ## Repository Structure
 
-```text
-.
-├── data/
-│   └── dataset.csv
-├── eda_google_capstone_style.ipynb
+```
+storage-story-1/
+│
+├── datasets/
+│   ├── files.csv                    # Raw dataset
+│   └── files_clean_engineered.csv   # Processed dataset
+│
+├── notebooks/
+│   └── notebook.ipynb               # Main EDA notebook
+│
+├── figures/                         # Generated visualizations
+│
+├── queries/
+│   └── get_data.sql                 # Data extraction query
+│
+├── environments/
+│   └── environment.yml              # Reproducible environment
+│
 └── README.md
 ```
 
 ---
 
-## Reproducibility Notes
+## Project Context
 
-* Relative paths are used throughout
-* All transformations are explicitly documented
-* Notebook can be run end-to-end given the dataset
+As personal media accumulates over time, storage usage grows rapidly, making it increasingly difficult to plan, manage, and optimize long-term storage. This project uses file-level metadata to:
+
+* Understand storage consumption patterns
+* Identify dominant contributors to storage growth
+* Reveal temporal trends and seasonality in file creation and storage usage
+
+All personal or sensitive identifiers have been **anonymized or masked**, preserving privacy while maintaining analytical integrity.
 
 ---
 
-## Disclaimer
+## Business Task
 
-This project uses **personal but anonymized metadata** and is shared strictly for **educational and portfolio purposes**.
-No original media files or identifiable information are included.
+**Primary Question**
+How is personal media storage consumed over time, what patterns and trends exist across file categories, formats, and temporal dimensions, and how can these insights inform storage planning decisions?
+
+**Key Objectives**
+
+* Quantify storage usage by category, format, and time
+* Compare file count dominance vs. storage size dominance
+* Identify long-term growth trends and seasonality
+* Provide a reliable analytical foundation for future optimization or forecasting work
+
+---
+
+## Stakeholders
+
+* **Data Analysts / Data Scientists** – to understand dataset structure, limitations, and analytical opportunities
+* **Business or Operational Decision-Makers** – to support storage capacity planning and prioritization
+* **Project Reviewers / External Audiences** – to evaluate analytical rigor, clarity, and reproducibility
+
+---
+
+## Dataset Summary
+
+* **Records:** 108,598 (each record represents one media file)
+* **Granularity:** File-level metadata
+* **Key Attributes:**
+
+  * Hierarchical identifiers (albumRootId, albumId, imageId)
+  * Media category and format
+  * File size (bytes)
+  * File creation date
+
+### Data Quality Highlights
+
+* 100% non-null values across all columns
+* No duplicate records detected
+* Dataset size ~6.6 MB, efficient for in-memory analysis
+* Structurally complete and suitable for aggregate and temporal analysis
+
+---
+
+## Methodology
+
+### 1. Ask
+
+* Defined business questions and analytical scope
+* Identified stakeholders and success criteria
+* Ensured alignment between business objectives and EDA approach
+
+### 2. Prepare
+
+* Reviewed dataset structure, data types, and volume
+* Assessed completeness and reliability
+* Documented analytical implications of schema design
+
+### 3. Process
+
+* Verified absence of missing values and duplicates
+* Created a working copy of the dataset to preserve raw data
+* Converted file creation date to datetime format
+* Engineered minimal temporal features (year, month, day of week)
+* Normalized file size units (bytes → MB / GB)
+
+### 4. Analyze
+
+* Descriptive statistics across original and engineered features
+* Category-level analysis by:
+
+  * File count distribution
+  * Total storage contribution
+* Temporal analysis of:
+
+  * File creation trends
+  * Storage growth over time
+
+Reusable EDA visualization functions were developed to ensure consistency and reproducibility across analyses.
+
+---
+
+## Key Analytical Insights (High-Level)
+
+* Storage usage is not always aligned with file count dominance
+* Certain formats or categories contribute disproportionately to total storage
+* Long-term growth trends are observable at the yearly level
+* Temporal aggregation reveals patterns useful for capacity planning
+
+*(Detailed insights are documented within the notebook.)*
+
+---
+
+## Limitations & Assumptions
+
+* The dataset represents a **single anonymized user**, limiting generalizability
+* Analysis is based solely on **metadata**, not file content
+* File creation date may not always reflect the original capture date
+* Semantic correctness of categories and formats is assumed
+
+These limitations should be considered when extending the analysis or applying insights to broader contexts.
+
+---
+
+## Reproducibility
+
+* All transformations are documented and non-destructive
+* Raw data is preserved separately from processed outputs
+* Environment dependencies are captured in `environment.yml`
+* Visual outputs are saved to disk for consistent reuse
+
+---
+
+## Next Steps
+
+Potential extensions of this work include:
+
+* Storage growth forecasting
+* Cost modeling based on storage tiers
+* Automated archival or lifecycle management rules
+* Cross-user or multi-device comparative analysis
