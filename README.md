@@ -14,19 +14,22 @@ Analysis Type: Exploratory Data Analysis (EDA)
 storage-story-1/
 │
 ├── datasets/
-│   ├── files.csv                    # Raw dataset
-│   └── files_clean_engineered.csv   # Processed dataset
+│   ├── files.csv                      # Raw dataset
+│   └── files_clean_engineered.csv     # Processed dataset
 │
 ├── notebooks/
-│   └── notebook.ipynb               # Main EDA notebook
+│   └── notebook.ipynb                 # Main EDA notebook
 │
-├── figures/                         # Generated visualizations
+├── figures/                           # Generated static visualizations (PNG/SVG)
+│
+├── visualizations/
+│   └── storage-story-1.pbix           # Power BI dashboard/report
 │
 ├── queries/
-│   └── get_data.sql                 # Data extraction query
+│   └── get_data.sql                   # Data extraction query
 │
 ├── environments/
-│   └── environment.yml              # Reproducible environment
+│   └── environment.yml                # Reproducible environment
 │
 └── README.md
 ```
