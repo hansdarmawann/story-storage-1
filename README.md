@@ -124,16 +124,12 @@ How is personal media storage consumed over time, what patterns and trends exist
 * Analyzed storage contribution using aggregated file size metrics
 * Examined temporal trends in both file creation volume and total storage growth
 
-Reusable EDA visualization functions were developed to ensure consistency and reproducibility across analyses.
-
 ### 5. Share
 
 * Synthesized analytical results into clear, stakeholder-oriented insights
 * Summarized dominant storage consumption patterns across categories, formats, and time
 * Highlighted contrasts between file count dominance and storage size dominance
 * Documented analytical limitations and assumptions affecting interpretation
-
-All insights presented in this phase are derived directly from outputs generated during the Analyze phase.
 
 ### 6. Act
 
@@ -142,4 +138,8 @@ All insights presented in this phase are derived directly from outputs generated
 * Outlined non-prescriptive recommendations for capacity planning and archival strategies
 * Defined future analytical extensions beyond the scope of the current EDA
 
-This phase is intentionally forward-looking and does not introduce additional analysis or modeling.
+---
+
+## Closing Statement
+
+This project demonstrates a disciplined and transparent application of exploratory data analysis to real-world personal media storage metadata. By adhering strictly to the Ask–Prepare–Process–Analyze–Share–Act framework and avoiding unnecessary analytical embellishments, the analysis provides a reliable foundation for understanding storage consumption patterns. The resulting insights are intended to support informed decision-making and serve as a robust baseline for future analytical, optimization, or forecasting initiatives.
